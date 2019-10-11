@@ -14,6 +14,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'cookieValidationKey' => $params['cookieValidationKey'],
             'baseUrl' => '',
         ],
         'assetManager' => [
@@ -23,11 +24,19 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'identityCookie' => [
+                'name' => '_identity-frontend',
+                'httpOnly' => true,
+                'domain' => $params['cookieDomain'],
+            ],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => '_session',
+            'cookieParams' => [
+                'domain' => $params['cookieDomain'],
+                'httpOnly' => true,
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -46,7 +55,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 ''=> 'site/index',
-                '<action>'=>'site/<action>',
+                '<_a>'=>'site/<_a>',
             ],
         ],
     ],
