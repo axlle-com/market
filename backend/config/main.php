@@ -15,6 +15,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'baseUrl' => '/admin',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -42,16 +43,18 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ''=> 'site/index',
+                '<action>'=>'site/<action>',
             ],
         ],
-        'as access' => [
-            'class' => 'yii\filters\AccessControl',
-            'except' => ['auth/login', 'site/error'],
-            'rules' => [
-                [
-                    'allow' => true,
-                    'roles' => ['admin'],
-                ],
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'except' => ['site/login', 'site/error'],
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
             ],
         ],
     ],
