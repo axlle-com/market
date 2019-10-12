@@ -6,7 +6,7 @@ return [
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'bootstrap' => [
-        'common/bootstrap/SetUp',
+        'setup',
     ],
     'components' => [
         'cache' => [
@@ -14,5 +14,8 @@ return [
             'cachePath' => '@common/runtime/cache',
         ],
         'db'  => require(__DIR__ . '/db.php'),
+        'setup' => [
+            'class' => 'common\bootstrap\SetUp',
+        ],
     ],
 ];
