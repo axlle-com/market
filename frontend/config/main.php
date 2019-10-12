@@ -25,7 +25,7 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => [
-                'name' => '_identity-frontend',
+                'name' => '_identity',
                 'httpOnly' => true,
                 'domain' => $params['cookieDomain'],
             ],
