@@ -16,7 +16,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'cookieValidationKey' => $params['cookieValidationKey'],
-            'baseUrl' => '/admin',
+            'baseUrl' => '',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
