@@ -36,4 +36,6 @@ phpunit.phar
 # ignore generated files
 /frontend/web/index-test.php
 /backend/web/index-test.php
-!/common/runtime/
+/common/runtime/
+/frontend/runtime/
+/backend/runtime/
